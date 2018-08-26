@@ -8,12 +8,12 @@ public class Helicopter : MonoBehaviour {
 	private bool called = false;
 	private AudioSource audioSource;
 
-	private Rigidbody rigidbody;
+	private Rigidbody rb;
 
 	// Use this for initialization
 	void Start () {
 		audioSource = GetComponent<AudioSource>();
-		rigidbody = GetComponent<Rigidbody>();
+		rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -27,7 +27,7 @@ public class Helicopter : MonoBehaviour {
 			audioSource.Play();
 			called = true;
 			Debug.Log("Helicopter Called!");
-			rigidbody.velocity = new Vector3(0, 0, 50f);
+			rb.velocity = new Vector3(0, 0, 50f);
 		}
 	}
 }

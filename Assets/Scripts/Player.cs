@@ -8,12 +8,25 @@ public class Player : MonoBehaviour {
 	public GameObject spawnPoints;
 	public bool isRespawn = false;
 
+	public AudioClip whatHappenedClip;
+
+	private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start() {
 		if (isRespawn) {
 			Respawn();
 		}
+
+		AudioSource[] audioSources = GetComponents<AudioSource>();
+        foreach(AudioSource audioSource in audioSources){
+            if(audioSource.priority == 1){
+                this.audioSource = audioSource;
+            }
+        }
+
+		audioSource.clip = whatHappenedClip;
+		audioSource.Play();
 	}
 
 	// Update is called once per frame

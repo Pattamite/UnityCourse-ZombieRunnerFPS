@@ -16,7 +16,7 @@ public class ClearArea : MonoBehaviour {
 	void Update () {
 		timeSinceLastTrigger += Time.deltaTime;
 
-		if(timeSinceLastTrigger > clearTime){
+		if(timeSinceLastTrigger > clearTime && Time.realtimeSinceStartup > 10f){
 			SendMessageUpwards("OnFindClearArea");
 		}
 	}
