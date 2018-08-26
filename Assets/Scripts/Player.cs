@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+	public Helicopter helicopter;
 	public GameObject spawnPoints;
 	public bool isRespawn = false;
+
 
 	// Use this for initialization
 	void Start() {
@@ -24,5 +26,10 @@ public class Player : MonoBehaviour {
 		int pointToSpawn = Random.Range(0, spawnPointsCount);
 
 		this.transform.position = spawnPoints.transform.GetChild(pointToSpawn).transform.position;
+	}
+
+	void OnFindClearArea(){
+		Debug.Log("Player found Clear Area");
+		helicopter.Call();
 	}
 }
